@@ -22,6 +22,9 @@ The following environment variables can be overwritten by creating a `.env` file
 
 | Environment variable | Description | Default value |
 |---|---|---|
+| JIRA_URL | The domain that points to your jira application | |
+| JIRA_USERNAME | The jira username used to authenticate | |
+| JIRA_PASSWORD | The jira password used to authenticate | |
 | DATABASE_USER | Database username | admin |
 | DATABASE_PASSWORD | Database password | admin |
 | DATABASE_PORT | Port to expose the Postgres database | 5432 |
