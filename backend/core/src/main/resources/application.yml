@@ -1,0 +1,21 @@
+spring:
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: false
+        hibernate:
+            ddl-auto: none
+    datasource:
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql://database:5432/jiraiya
+        username: ${DATABASE_USER:admin}
+        password: ${DATABASE_PASSWORD:admin}
+
+server:
+    error:
+        include-message: always
+        whitelabel:
+            enabled: false
+
+sentry:
+    dsn: https://f8047212b8fc435bafcf6dc31ccec7b0@o617127.ingest.sentry.io/6356072
+    traces-sample-rate: 1.0
