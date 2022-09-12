@@ -81,18 +81,17 @@ public class IssueUpdater {
 
 		/* Gets all users */
 		List<User> allUsers = userService.getAllUsers();
-		/* Removes users that are not on the team */
 		List<Issue> issues = allSprintIssues
 			.stream()
-			.filter(jiraIssueDTO -> {
-				if (jiraIssueDTO.getFields().getAssignee() == null) {
-					return true;
-				}
-
-				return allUsers.stream().anyMatch(user -> user.getKey().equals(jiraIssueDTO.getFields().getAssignee().getKey()));
-			})
 			.map(JiraIssueDTO::toEntity)
 			.toList();
+
+		/* Removes users that are not on the team anymore */
+		issues.forEach(issue -> {
+			if (issue.getUser() != null && allUsers.stream().noneMatch(user -> user.getKey().equals(issue.getUser().getKey()))) {
+				issue.setUser(null);
+			}
+		});
 
 		issueService.saveManyIssues(issues);
 		System.out.println("Issue: ✅");
