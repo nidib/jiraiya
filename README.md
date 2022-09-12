@@ -11,8 +11,8 @@ This application exposes the following services:
 
 ## Development guide
 ### backend/core
-- Currently the only way to develop this application is by rebuilding its image every time there is a change on the source code. This can be done by running:
-  - `$ sh ./scripts/start.sh up` (Run this after changing this project's source code)
+- Currently the only way to develop this application is by rebuilding its image every time there is a change on the source code. This can be done by running at the project root:
+  - `$ ./scripts/start.sh up`
 ### frontend/dashboard
 - Not implemented
 
