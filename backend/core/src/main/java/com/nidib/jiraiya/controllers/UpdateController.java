@@ -1,9 +1,11 @@
 package com.nidib.jiraiya.controllers;
 
 import com.nidib.jiraiya.apps.updater.BasicInfoUpdater;
+import com.nidib.jiraiya.responses.ResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/update")
 public class UpdateController {
@@ -15,13 +17,13 @@ public class UpdateController {
 	}
 
 	@GetMapping()
-	public String update(@RequestParam(required = false) String board) {
+	public ResponseObject<Void> update(@RequestParam(required = false) String board) {
 		if (board == null) {
 			throw new RuntimeException("Query parameter 'board' is required");
 		}
 
 		this.basicInfoUpdater.update(board);
 
-		return "Board " + board + " updated!";
+		return new ResponseObject<>("Board " + board + " updated!");
 	}
 }

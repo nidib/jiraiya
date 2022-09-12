@@ -6,7 +6,7 @@ This application exposes the following services:
 | Service | Description | Status |
 |---|---|---|
 | backend/core | The main backend api, where all the data from jira is fetched and processed | Alpha testing |
-| frontend/dashboard | A dashboard that consumes the api above, and provides options to fetch data from jira | Not implemented yet |
+| frontend/dashboard | A dashboard that consumes the api above, and provides options to fetch data from jira | Alpha testing |
 
 ### First steps
 - Clone this repo
@@ -18,13 +18,18 @@ This application exposes the following services:
 - For the example below a board of id 17 will have its data fetched (Currently only one board can be stored)
   - Hit a GET request at `http://localhost:{BACKEND_CORE_PORT}/update?board=17`
 
+### Where is the data stored?
+- This application also creates a Postgres database and all your data is stored there
+- All of its tables will be in a database called jiraiya inside a schema also called jiraiya
+- So, for example - to see all your board issues - you can do as follow:
+```sql
+SELECT * FROM jiraiya.issue;
+```
+
 
 ## Development guide
-### backend/core
 - Currently the only way to develop this application is by rebuilding its image every time there is a change on the source code. This can be done by running at the project root:
   - `$ ./scripts/start.sh up`
-### frontend/dashboard
-- Not implemented
 
 
 ## Environment variables
