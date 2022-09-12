@@ -8,6 +8,10 @@ This application exposes the following services:
 | backend/core | The main backend api, where all the data from jira is fetched and processed |
 | frontend/dashboard | A dashboard that consumes the api above, and provides options to fetch data from jira |
 
+### How to fetch and store data?
+- For the example below a board of id 17 will have its data fetched (Currently only one board can be stored)
+  - Hit a GET request at `http://localhost:{BACKEND_CORE_PORT}/update?board=17`
+
 
 ## Development guide
 ### backend/core
