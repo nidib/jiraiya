@@ -3,10 +3,16 @@
 ## Usage guide
 This application exposes the following services:
 
-| Service | Description |
-|---|---|
-| backend/core | The main backend api, where all the data from jira is fetched and processed |
-| frontend/dashboard | A dashboard that consumes the api above, and provides options to fetch data from jira |
+| Service | Description | Status |
+|---|---|---|
+| backend/core | The main backend api, where all the data from jira is fetched and processed | Alpha testing |
+| frontend/dashboard | A dashboard that consumes the api above, and provides options to fetch data from jira | Not implemented yet |
+
+### First steps
+- Clone this repo
+- Make a copy of .env_sample renaming it to .env
+- Set your environment variables
+- Run the app with the command `./scripts/start.sh up`
 
 ### How to fetch and store data?
 - For the example below a board of id 17 will have its data fetched (Currently only one board can be stored)
